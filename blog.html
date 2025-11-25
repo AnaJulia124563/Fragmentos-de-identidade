@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Fragmentos de Identidade — Mockup</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <link rel="icon" type="image/png" href="foto1.png">
+
+    <style>
+        :root {
+            --bg: #ffffff;
+            --text: #111111;
+            --muted: #6b6b6b;
+            --accent: #000;
+            --max-width: 1100px;
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        body {
+            margin: 0;
+            font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+            line-height: 1.45;
+            color: var(--text);
+            background: var(--bg)
+        }
+
+        .topbar {
+            display: flex;
+
+            align-items: center;
+            padding: 5px 20px;
+            border-bottom: 1px solid #eee
+        }
+
+        .brand {
+            font-family: Playfair Display, serif;
+            font-size: 18px;
+            letter-spacing: 0.6px;
+            padding: 10px 800px 10px 10px;
+        }
+
+        .meta {
+            font-size: 13px;
+            color: var(--muted)
+        }
+
+        .container {
+            max-width: var(--max-width);
+            margin: 48px auto;
+            padding: 0 20px
+        }
+
+        h1 {
+            font-family: Playfair Display, serif;
+            font-size: 38px;
+            margin: 0;
+            line-height: 1.05
+        }
+
+        .date {
+            font-size: 13px;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 1px
+        }
+
+        .lead {
+            max-width: 70ch;
+            font-size: 16px;
+            color: #222;
+            margin-top: 12px
+        }
+
+        /* ===== aqui está o layout lado-a-lado ===== */
+        .dois {
+            display: flex;
+            gap: 28px;
+            /* espaço entre imagem e texto */
+            align-items: flex-start;
+            /* alinha ao topo - troque para center se quiser centralizar verticalmente */
+            margin-bottom: 18px;
+        }
+
+        .identd {
+            width: 260px;
+            /* largura fixa para manter proporção com o texto */
+            height: auto;
+            border-radius: 8px;
+            object-fit: cover;
+            flex-shrink: 0;
+            /* evita que a imagem encolha */
+            filter: grayscale(100%);
+            /* estilo parecido com o site de referência */
+        }
+
+        .title-wrap {
+            flex: 1;
+            /* ocupa o resto do espaço disponível */
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            gap: 8px;
+        }
+
+        /* responsividade: empilha em telas pequenas */
+        @media (max-width:720px) {
+            .dois {
+                flex-direction: column;
+                align-items: center;
+                text-align: center
+            }
+
+            .identd {
+                width: 80%;
+                max-width: 360px
+            }
+
+            .title-wrap {
+                width: 100%
+            }
+
+            h1 {
+                font-size: 26px
+            }
+
+            .lead {
+                font-size: 15px
+            }
+        }
+
+        /* restante do seu CSS (gallery, hero, mosaic...) -- mantenha o que já estava */
+        .hero-img {
+            width: 100%;
+            height: 62vh;
+            max-height: 760px;
+            background-size: cover;
+            background-position: center;
+            margin: 0 -20px 40px;
+            padding: 32px;
+            display: flex;
+            align-items: flex-end
+        }
+
+        .hero-caption {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(2px);
+            padding: 18px 20px;
+            border-left: 4px solid var(--accent);
+            max-width: 720px
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-top: 34px
+        }
+
+        .gallery img:nth-child(10) {
+            grid-column: 2;
+            /* coloca na coluna do meio */
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            display: block;
+            filter: grayscale(100%)
+        }
+
+        .mosaic {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 12px;
+            margin: 48px 0
+        }
+
+        .mosaic .big {
+            height: 480px;
+            background-size: cover;
+            background-position: center;
+            filter: grayscale(100%)
+        }
+
+        .mosaic .column {
+            display: grid;
+            grid-template-rows: 1fr 1fr;
+            gap: 12px
+        }
+
+        .mosaic .small {
+            height: 234px;
+            background-size: cover;
+            background-position: center;
+            filter: grayscale(100%)
+        }
+
+        .quote {
+            border-left: 3px solid #111;
+            padding-left: 18px;
+            margin: 36px 0;
+            color: var(--muted);
+            font-style: italic
+        }
+
+        footer {
+            border-top: 1px solid #eee;
+            padding: 26px 20px;
+            margin-top: 48px;
+            color: var(--muted);
+            font-size: 13px
+        }
+
+        .linha-retangulos {
+            display: flex;
+            /* Coloca lado a lado */
+            width: 100%;
+        }
+
+        .retangulo {
+            flex: 1;
+            /* Cada um ocupa 1/3 da largura */
+            border: 2px solid black;
+            background: white;
+            padding: 16px;
+            height: 1cm;
+            /* Altura aproximada */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            /* Garante que não há espaços */
+            box-sizing: border-box;
+            /* Mantém borda dentro da medida */
+            color: #000;
+            text-decoration: none;
+        }
+
+        .retangulo:hover {
+            color: rgb(0, 33, 199);
+            text-decoration: underline;
+        }
+
+        .logo {
+            width: 80px;
+            height: 90px;
+        }
+
+        .fotoetexto {
+            display: flex;
+
+        }
+
+        .espacotexto {
+            padding: 30px;
+            width: 900px;
+            background-color: rgb(255, 255, 255);
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+            border-radius: 5px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<header>
+    <div class="topbar">
+        <img src="logo.png" class="logo">
+        <div class="brand">Fotomuseu — Fragmentos de Identidade</div>
+        <div class="meta">Exhibition • 25 november – 2025</div>
+    </div>
+
+    <div class="linha-retangulos">
+        <a href="#titulo1" class="retangulo">Início</a>
+        <a href="#titulo2" class="retangulo">Sobre Nós</a>
+        <a href="#titulo3" class="retangulo">Fotografias</a>
+    </div>
+</header>
+
+<body>
+
+    <main class="container">
+        <!-- bloco lado-a-lado: imagem + título/lead -->
+        <div class="dois">
+            <!-- substitua pelo caminho correto da sua imagem -->
+            <img src="foto1.png" class="identd" alt="Frida Orupabo — installation">
+
+            <div class="title-wrap">
+                <h1 id="titulo1">Fragmentos de Identidade— <span style="font-weight:400">Revela que somos
+                        feitos de pedaços — memórias, gestos e silêncios que, reunidos, compõem quem somos.</span></h1>
+                <div class="date">Fotografia para Web</div>
+                <p class="lead">As fotografias desta série capturam “fragmentos” que revelam aquilo que torna cada
+                    pessoa única — pequenos detalhes, objetos, gestos e espaços que carregam orgulho, memória e
+                    pertencimento. Em vez de focar apenas no rosto, as imagens buscam aquilo que reflete a
+                    personalidade: aquilo que a pessoa escolhe mostrar, aquilo que a representa e aquilo que fala por
+                    ela sem palavras. Cada fragmento é uma pista, um traço íntimo que, somado aos outros, compõe quem
+                    somos.</p>
+            </div>
+        </div>
+
+        <!-- resto do conteúdo (hero, galerias...) -->
+        <h2 id="titulo2">Sobre Nós</h2>
+
+        <section class="hero-img" style="background-image: url('banner.png');">
+            <div class="hero-caption">
+                <h2>Fragmentos de Identidade</h2>
+                <p>Criado por Ana Júlia Pedroso de Freitas. É um projeto fotográfico que mostra que a essência de cada
+                    pessoa é feita de pequenas partes — memórias, objetos,
+                    sensações e histórias — que, quando reunidas, revelam quem realmente somos. Minhas fotografias
+                    buscam capturar esses fragmentos que carregamos, mesmo quando não percebemos.
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <h2 id="titulo3">Fotografias</h2>
+            <div class="gallery">
+                <img src="FOTO2.png" alt="installation 1">
+                <img src="FOTO1.jpg" alt="installation 5">
+                <img src="FOTO3.png" alt="installation 6">
+                <img src="FOTO4.png" alt="installation 2">
+                <img src="FOTO5.png" alt="installation 3">
+                <img src="FOTO6.png" alt="installation 4">
+                <img src="FOTO7.png" alt="installation 7">
+                <img src="FOTO8.png" alt="installation 8">
+                <img src="foto9.png" alt="installation 9">
+                <img src="foto10.png" alt="installation 10">
+            </div>
+        </section>
+        <br>
+        <section>
+            <div class="fotoetexto">
+                <img src="FOTO2.png" alt="fotoetexto1" width="300px">
+                <p class="espacotexto">Neste fragmento, o gesto de passar batom se mistura com a presença delicada da
+                    cicatriz, revelando a complexidade da identidade que ela carrega. A maquiagem, suave e íntima, não
+                    busca esconder nada — pelo contrário, dialoga com a marca na pele como parte da história da pessoa.
+                    É um momento de cuidado e afirmação, onde beleza e trajetória coexistem sem hierarquia. A cicatriz
+                    se torna não um detalhe, mas uma camada de significado: um traço que conta, silenciosamente, sobre
+                    vivências, força e autenticidade.</p>
+            </div>
+            <br>
+            <div class="fotoetexto">
+                <img src="FOTO1.jpg" alt="fotoetexto1" width="300px">
+                <p class="espacotexto">Neste fragmento, o olhar revela aquilo que as palavras não alcançam. A pele, a
+                    textura, os cílios — tudo registra uma identidade que se expressa nos detalhes. É um pedaço
+                    silencioso, íntimo e profundo, onde a vulnerabilidade e a força coexistem. Um recorte pequeno, mas
+                    carregado de presença.</p>
+            </div>
+            <br>
+            <div class="fotoetexto">
+                <img src="FOTO3.png" alt="fotoetexto1" width="300px">
+                <p class="espacotexto">Este fragmento destaca um detalhe que, à primeira vista, pode parecer apenas um
+                    acessório — mas que, na verdade, carrega história, estilo e pertencimento. O brinco dourado reflete
+                    luz e personalidade, revelando como pequenos objetos podem se tornar extensões do que somos. Aqui, a
+                    identidade se manifesta nos detalhes: na escolha, no brilho, no gesto de adornar o próprio corpo
+                    como forma de afirmação e expressão.</p>
+            </div>
+            <br>
+            <div class="fotoetexto">
+                <img src="FOTO4.png" alt="fotoetexto1" width="300px">
+                <p class="espacotexto">Neste recorte, o bigode e a textura dos lábios revelam a força da
+                    individualidade. Cada fio, cada marca na pele, compõe uma narrativa silenciosa sobre masculinidade,
+                    vivências e a maneira única com que cada pessoa ocupa o próprio rosto. É um fragmento íntimo,
+                    simples e intenso ao mesmo tempo — prova de que a identidade também se constrói no que muitas vezes
+                    passa despercebido.</p>
+            </div>
+            <br>
+            <div class="fotoetexto">
+                <img src="FOTO5.png" alt="fotoetexto1" width="300px">
+                <p class="espacotexto">Os cachos, com sua forma orgânica e imprevisível, carregam camadas de identidade
+                    que vão além da estética. Cada curva e cada movimento refletem origem, ancestralidade e a relação da
+                    pessoa com seu próprio corpo. É um fragmento que fala de liberdade, textura e autenticidade — uma
+                    lembrança de que a identidade também vive nos fios que moldam quem somos.</p>
+            </div>
+            <br>
+            <div class="fotoetexto">
+                <img src="FOTO66.png" alt="fotoetexto1" width="300px">
+                <p class="espacotexto">Mesmo sem mostrar totalmente os olhos, a expressão transmite conforto,
+                    acolhimento e alegria silenciosa. É um fragmento íntimo, onde a identidade se manifesta nos
+                    detalhes: na forma como o rosto se ilumina, no jeito único de sorrir com os olhos, na presença
+                    discreta e marcante dos óculos que fazem parte de quem a pessoa é.</p>
+            </div>
+            <br>
+            <div class="fotoetexto">
+                <img src="FOTO7.png" alt="fotoetexto1" width="300px">
+                <p class="espacotexto">A andorinha marcada na pele é mais do que um desenho — é um símbolo escolhido,
+                    carregado de memórias e significados íntimos. Nesse fragmento, o corpo se torna narrativa, e a
+                    tatuagem revela uma identidade construída por escolhas, crenças e histórias que permanecem visíveis
+                    mesmo quando as palavras não são ditas.</p>
+            </div>
+            <br>
+            <div class="fotoetexto">
+                <img src="FOTO8.png" alt="fotoetexto1" width="300px">
+                <p class="espacotexto"> O close revela o brilho natural do olhar, onde luz e sombra criam uma textura
+                    que parece pulsar vida. É um fragmento silencioso, mas emocional: o olhar como espelho de
+                    pensamentos guardados, de fragilidades, de sonhos. Aqui, a identidade se mostra através daquilo que
+                    é visto — e daquilo que vê.</p>
+            </div>
+            <br>
+            <div class="fotoetexto">
+                <img src="foto9.png" alt="fotoetexto1" width="300px">
+                <p class="espacotexto">Uma pinta pode representar identidade porque ela é um detalhe único do corpo, uma
+                    pequena marca que diferencia uma pessoa de todas as outras. Mesmo discreta, ela carrega
+                    individualidade, história e presença — é um ponto que pertence só a você. Em meio a tantos traços
+                    que nos compõem, uma pinta pode se tornar símbolo de autenticidade, reforçando que cada parte do
+                    nosso corpo ajuda a contar quem somos.</p>
+            </div>
+            <br>
+            <div class="fotoetexto">
+                <img src="foto10.png" alt="fotoetexto1" width="300px">
+                <p class="espacotexto">O sorriso aberto registra uma presença forte, afetiva e cheia de história. Cada
+                    ruga, cada traço do rosto, cada detalhe iluminado pela luz conta sobre vivências que moldam quem ela
+                    é. Esse fragmento revela identidade através da experiência: o rosto como arquivo vivo de alegrias,
+                    resistências e memórias.</p>
+            </div>
+        </section>
+        <!-- ...o resto do seu HTML -->
+
+        <footer>
+            <strong>Fotografia para Web</strong> — Ana Júlia Pedroso de Freitas 25/11/2025
+        </footer>
+    </main>
+</body>
+
+</html>
